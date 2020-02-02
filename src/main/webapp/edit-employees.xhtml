@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  >
+
+  <h:head>
+    <!-- title of tab/window in browser -->
+    <title>Edit Employee</title>
+  </h:head>
+  <h:body>
+    <br />
+    <h2>Edit Employee</h2>
+    <h:form>
+      
+      <h:panelGrid columns="3">
+      
+        <h:outputLabel value="#{uiconsts['columnLabel_Firstname']}" />
+        <h:inputText id="firstNameInputText" required="true"
+        requiredMessage="Please enter first name" 
+        value="#{editEmployee.firstName}" maxlength="30" />
+        <h:message for="firstNameInputText" styleClass="error" />
+        
+        <h:outputLabel value="#{uiconsts['columnLabel_Lastname']}" />
+        <h:inputText id="lastNameInputText" required="true"
+        requiredMessage="Please enter last name" 
+        value="#{editEmployee.lastName}" maxlength="30" />
+        <h:message for="lastNameInputText" styleClass="error" />
+        
+        <h:outputLabel value="#{uiconsts['columnLabel_Email']}" />
+        <h:inputText id="emailInputText" required="true"
+        requiredMessage="Please enter email" 
+        value="#{editEmployee.email}" />
+        <h:message for="emailInputText" styleClass="error" />
+        
+        <h:outputLabel value="#{uiconsts['columnLabel_Title']}" />
+        <h:inputText id="titleInputText" required="true"
+        requiredMessage="Please enter title" 
+        value="#{editEmployee.title}" maxlength="50" />
+        <h:message for="titleInputText" styleClass="error" />
+        
+        <h:outputLabel value="#{uiconsts['columnLabel_Salary']}" />
+        <h:inputText id="salaryInput" required="true"
+        requiredMessage="Please enter salary" 
+        value="#{editEmployee.salary}" />
+        <h:message for="salaryInput" styleClass="error" />
+        
+      </h:panelGrid>
+      
+      <h:commandButton value="Save Edited Information" action="#{employeeController.saveEdit(editEmployee)}" />
+    </h:form>
+    
+    <br/>
+    <h:outputLink value="index.html">Return to Employees Page</h:outputLink>
+    <footer>
+      <h:outputText value="Brought to you by #{uiconsts['footer.studentname']} (20W CST 8277 #{uiconsts['footer.labsection']}, #{uiconsts['footer.studentnumber']})" />
+    </footer>
+  </h:body>
+</html>
